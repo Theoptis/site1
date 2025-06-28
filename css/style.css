@@ -543,4 +543,11 @@ a {
     padding-top: 140px !important;
     margin-top: 0 !important; /* prevent negative margin */
   }
+
+  /* Mobile transparent navbar */
+  .navbar {
+    background-color: rgba(23, 27, 30, 0.7) !important; /* semi-transparent */
+    border-bottom: none !important;
+    backdrop-filter: blur(10px); /* optional frosted glass effect */
+  }
 }
