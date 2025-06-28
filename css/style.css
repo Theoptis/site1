@@ -597,5 +597,71 @@ a {
     font-size: 0.9rem;
   }
 }
+@media (max-width: 768px) {
+  /* Ensure section containers don't overflow */
+  .section-block,
+  .about.section-block,
+  .drives-section,
+  .news-section,
+  .cta.section-block {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* About section fix */
+  .about.section-block {
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+  }
+
+  .about-text {
+    width: 100%;
+  }
+
+  .about-image {
+    position: static;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .about-image img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  /* Fix horizontal cards */
+  .horizontal-card {
+    flex-direction: column !important;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .horizontal-card h3,
+  .horizontal-card p {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Fix for the "Eyes of the Lord" heading section */
+  .vision-heading,
+  .vision-section h2,
+  .vision-section p {
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+
 
 
