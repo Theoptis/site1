@@ -2,14 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
 /* General styles */
+* {
+  box-sizing: border-box;
+}
+
 body, html {
   margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   background-color: #0e1117;
   color: white;
-  overflow-x: hidden;      /* Prevent horizontal scroll */
-  max-width: 100vw;
-  box-sizing: border-box;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a {
@@ -25,42 +29,44 @@ a {
   padding: 10px 40px;
   background-color: #171b1e;
   border-bottom: 1px solid #1e1e2e;
-
-  height: 80px; /* increased height to fit nav links better */
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  box-sizing: border-box; /* ensure padding included in height */
+  box-sizing: border-box;
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
   padding-left: 30px;
-  background-color: #171b1e; /* match navbar background */
-  height: 48px; /* fixed height */
-  overflow: hidden; /* clip any overflow */
+  background-color: #171b1e;
+  height: 48px;
+  overflow: hidden;
 }
 
 .nav-logo img.logo-img {
-  height: 160px; /* reduce from 140px to fit navbar */
+  height: 160px;
   width: auto;
   display: block;
   filter: drop-shadow(0 0 0 transparent);
-  background-color: #171b1e; /* fallback background */
+  background-color: #171b1e;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
   font-weight: 500;
   color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -70,7 +76,8 @@ a {
 /* SECTION STYLING */
 .section-block {
   padding: 80px 40px;
-  box-sizing: border-box; /* Added for consistent padding */
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* HERO SECTION */
@@ -79,12 +86,10 @@ a {
   background-size: cover;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  min-height: 100vh;
+  padding-top: 120px;
   color: white;
 }
 
@@ -99,6 +104,7 @@ a {
 .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 600px;
 }
 
 .hero-content h1 {
@@ -107,12 +113,14 @@ a {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   color: #ffffff;
+  line-height: 1.2;
 }
 
 .hero-content p {
   font-size: 1.2rem;
   color: #c3c3c3;
   margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 /* ABOUT SECTION */
@@ -121,13 +129,27 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 40px;
   position: relative;
+  min-height: 500px;
 }
 
 .about-text {
   flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #c3c3c3;
 }
 
 .about-image {
@@ -135,7 +157,7 @@ a {
   right: 40px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 0;
+  z-index: 1;
 }
 
 .about-image img {
@@ -163,6 +185,13 @@ a {
   z-index: -1;
 }
 
+.drives-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #ffffff;
+}
+
 /* Cards */
 .horizontal-card {
   background-color: rgba(26, 31, 43, 0.85);
@@ -178,9 +207,9 @@ a {
   transition: box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
   opacity: 0;
   transform: translateY(40px);
-  max-width: 100%;      /* Added for responsiveness */
+  max-width: 100%;
   box-sizing: border-box;
-  word-wrap: break-word; /* prevent text overflow */
+  word-wrap: break-word;
 }
 
 .horizontal-card.animate-fade-in,
@@ -223,8 +252,10 @@ a {
   border-radius: 16px;
   padding: 40px;
   max-width: 900px;
+  width: 100%;
   background-color: #131924;
   color: #ffffff;
+  box-sizing: border-box;
 }
 
 .news-title {
@@ -248,6 +279,18 @@ a {
   background-color: #080b11;
   text-align: center;
   border-top: 3px solid #007bff;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.cta p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #c3c3c3;
 }
 
 .btn {
@@ -289,15 +332,8 @@ a {
 /* Typewriter Effect */
 .typewriter {
   font-family: 'Courier New', Courier, monospace;
-  white-space: nowrap;
-  overflow: hidden;
   border-right: 2px solid #00bfff;
-  animation: typing 3s steps(60, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
@@ -334,99 +370,161 @@ a {
 .contact-info a:hover {
   text-decoration: underline;
 }
+
 .footer {
   text-align: center;
   padding: 20px 0;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: transparent; /* no background color */
+  background: transparent;
   user-select: none;
 }
 
 /* ==================== */
-/* ✅ Mobile Styles     */
+/* MOBILE RESPONSIVE STYLES */
 /* ==================== */
-@media (max-width: 768px) {
-  /* Fix section padding */
-  .section-block {
-    padding: 40px 20px;
-  }
 
-  /* Navbar */
+@media (max-width: 768px) {
+  /* Navigation */
   .navbar {
     flex-direction: column;
     align-items: center;
-    padding: 5px 15px;
-    height: 50px;
-    background-color: rgba(23, 27, 30, 0.7) !important; /* semi-transparent */
-    border-bottom: none !important;
-    backdrop-filter: blur(10px); /* optional frosted glass effect */
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 5px;
+    padding: 10px 20px;
+    height: auto;
+    min-height: 120px;
   }
 
   .nav-logo {
     padding-left: 0;
     justify-content: center;
+    margin-bottom: 10px;
   }
 
   .nav-logo img.logo-img {
-    height: 40px;
+    height: 80px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Sections */
+  .section-block {
+    padding: 60px 20px;
   }
 
   /* Hero */
   .hero.section-block {
-    flex-direction: column;
-    padding: 40px 20px;
+    min-height: 80vh;
+    padding-top: 180px;
+    justify-content: center;
     text-align: center;
   }
 
+  .hero-content {
+    max-width: 100%;
+  }
+
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
   }
 
   .hero-content p {
     font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .hero-content .typewriter {
+    white-space: normal;
+    animation: none;
+    border-right: none;
   }
 
   /* About */
   .about.section-block {
     flex-direction: column;
-    padding: 40px 20px;
+    text-align: center;
+    min-height: auto;
+    gap: 30px;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-text .typewriter {
+    white-space: normal;
+    animation: none;
+    border-right: none;
   }
 
   .about-image {
     position: static;
-    margin-top: 20px;
+    transform: none;
     text-align: center;
-    width: 100%;
+    margin-top: 20px;
   }
 
   .about-image img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
   }
 
-  /* Horizontal Cards */
+  /* Drives Section */
+  .drives-section {
+    background-attachment: scroll;
+  }
+
+  .drives-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
   .horizontal-card {
     flex-direction: column;
-    padding: 20px;
-    text-align: center;
+    padding: 25px;
+    text-align: left;
+    gap: 15px;
   }
 
   .horizontal-card h3 {
-    font-size: 1.2rem;
     width: 100%;
+    font-size: 1.3rem;
     margin-bottom: 10px;
   }
 
   .horizontal-card p {
     font-size: 0.95rem;
+    width: 100%;
+  }
+
+  .horizontal-card .typewriter {
+    white-space: normal;
+    animation: none;
+    border-right: none;
   }
 
   /* News */
@@ -435,9 +533,8 @@ a {
   }
 
   .news-container {
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 30px 20px;
+    margin: 0 10px;
   }
 
   .news-title {
@@ -446,153 +543,75 @@ a {
 
   .news-content {
     font-size: 14px;
+    line-height: 1.6;
   }
 
   /* CTA */
   .cta.section-block {
-    padding: 40px 20px;
+    padding: 50px 20px;
+  }
+
+  .cta h2 {
+    font-size: 2rem;
+  }
+
+  .cta p {
+    font-size: 1rem;
+  }
+
+  .cta .typewriter {
+    white-space: normal;
+    animation: none;
+    border-right: none;
   }
 
   .btn {
     font-size: 14px;
-    padding: 10px 20px;
+    padding: 12px 20px;
   }
 
   /* Contact Info */
   .contact-info {
+    font-size: 0.85rem;
     padding: 0 10px;
-    font-size: 0.9rem;
+    line-height: 1.8;
   }
 
-  /* Prevent section containers overflow */
-  .section-block,
-  .about.section-block,
-  .drives-section,
-  .news-section,
-  .cta.section-block {
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
+  .contact-info p {
+    margin-bottom: 8px;
   }
 
-  /* About section fix */
-  .about.section-block {
-    flex-direction: column;
-    text-align: center;
-    position: relative;
+  /* Footer */
+  .footer {
+    font-size: 0.8rem;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
   }
 
-  .about-text {
-    width: 100%;
+  .about-text h2,
+  .drives-section h2,
+  .cta h2 {
+    font-size: 1.6rem;
   }
 
-  .about-image {
-    position: static;
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .about-image img {
-    max-width: 90%;
-    height: auto;
-  }
-
-  /* Fix horizontal cards */
   .horizontal-card {
-    flex-direction: column !important;
     padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: break-word; /* prevent breaking out */
-    word-wrap: break-word;
-    white-space: normal !important; /* prevent nowrap */
-    max-width: 100% !important;
   }
 
-  .horizontal-card h3,
-  .horizontal-card p {
-    text-align: left; /* easier to read */
-    width: 100% !important;
-    font-size: 1rem;
-    white-space: normal !important; /* force wrapping */
+  .news-container {
+    padding: 20px 15px;
   }
 
-  .horizontal-card p {
-    line-height: 1.6;
+  .news-title {
+    font-size: 20px;
   }
 
-  /* Fix for the "Eyes of the Lord" heading section */
-  .vision-heading,
-  .vision-section h2,
-  .vision-section p {
-    max-width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-sizing: border-box;
-    text-align: center;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-  }
-
-  /* Push content down so navbar doesn't cover it */
-  .hero.section-block,
-  .vision-section,
-  .about.section-block,
-  .drives-section {
-    padding-top: 140px !important;
-    margin-top: 0 !important; /* prevent negative margin */
-  }
-}
-
-/* ==================== */
-/* About Section Text Wrapping and Image Fixes */
-/* ==================== */
-.about.section-block {
-  flex-wrap: nowrap;           /* Prevent wrapping */
-  padding-right: 460px;        /* Reserve space for image */
-  min-height: 400px;           /* Ensure enough height for image */
-  justify-content: flex-start; /* Align text and image left to right */
-}
-
-.about-text {
-  flex: 1 1 auto;
-  max-width: 600px;            /* Limit text max width */
-  white-space: normal;         /* Allow normal wrapping */
-  overflow-wrap: break-word;   /* Wrap long words */
-  word-wrap: break-word;
-}
-
-.about-image {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 400px;
-  height: auto;
-  z-index: 0;
-}
-
-/* Responsive override for mobile to keep original behavior */
-@media (max-width: 768px) {
-  .about.section-block {
-    flex-wrap: wrap;           /* Allow wrapping on mobile */
-    padding-right: 0;          /* Remove right padding */
-    min-height: auto;
-    justify-content: center;   /* Center content */
-  }
-
-  .about-text {
-    max-width: 100%;
-  }
-
-  .about-image {
-    position: static;
-    max-width: 90%;
-    margin-top: 20px;
-    text-align: center;
+  .news-content {
+    font-size: 13px;
   }
 }
