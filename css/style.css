@@ -44,13 +44,11 @@ a {
 }
 
 .nav-logo img.logo-img {
-  height: 70px; /* reduce from 140px to fit navbar */
+  height: 100px; /* Increased to make logo larger */
   width: auto;
   display: block;
-  filter: drop-shadow(0 0 0 transparent);
-  background-color: #171b1e; /* fallback background */
+  background-color: transparent; /* cleaned fallback */
 }
-
 
 .nav-links {
   list-style: none;
