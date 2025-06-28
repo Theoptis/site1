@@ -43,7 +43,7 @@ a {
   overflow: hidden; /* clip any overflow */
 }
 
-.nav-logo img.logo-img {
+.nav-logo Img.logo-img {
   height: 160px; /* reduce from 140px to fit navbar */
   width: auto;
   display: block;
@@ -74,7 +74,7 @@ a {
 
 /* HERO SECTION */
 .hero.section-block {
-  background: url('../images/cyber-bg.png') no-repeat center center;
+  background: url('../Images/cyber-bg.png') no-repeat center center;
   background-size: cover;
   position: relative;
   display: flex;
@@ -145,7 +145,7 @@ a {
 
 /* WHAT DRIVES THEOPTIS SECTION */
 .drives-section {
-  background: url('../images/secure-data-flow.png') no-repeat center center;
+  background: url('../Images/secure-data-flow.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
