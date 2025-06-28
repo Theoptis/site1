@@ -16,6 +16,7 @@ a {
 }
 
 /* NAVIGATION */
+/* NAVIGATION */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -50,7 +51,6 @@ a {
   filter: drop-shadow(0 0 0 transparent);
   background-color: #171b1e; /* fallback background */
 }
-
 
 
 .nav-links {
