@@ -44,7 +44,7 @@ a {
 }
 
 .nav-logo img.logo-img {
-  height: 160px; /* reduce from 140px to fit navbar */
+  height: 170px; /* reduce from 140px to fit navbar */
   width: auto;
   display: block;
   filter: drop-shadow(0 0 0 transparent);
