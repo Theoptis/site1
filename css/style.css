@@ -666,31 +666,46 @@ a {
   .horizontal-card {
     flex-direction: column !important;
     padding: 20px;
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box;
+    overflow-wrap: break-word; /* prevent breaking out */
     word-wrap: break-word;
-    overflow-wrap: break-word;
+    white-space: normal !important; /* prevent nowrap */
   }
 
   .horizontal-card h3,
   .horizontal-card p {
-    width: 100%;
+    width: 100% !important;
     font-size: 1rem;
-    text-align: center;
+    text-align: left; /* easier to read */
+    white-space: normal !important; /* force wrapping */
   }
 
   .horizontal-card p {
     line-height: 1.6;
   }
 }
+
 @media (max-width: 768px) {
   .hero.section-block,
   .vision-section,
   .about.section-block,
   .drives-section {
-    padding-top: 120px !important; /* Push content down so navbar doesn’t cover it */
+    padding-top: 140px !important; /* Push content down so navbar doesn’t cover it */
   }
 }
+@media (max-width: 768px) {
+  /* Push down the section below navbar to prevent overlap */
+  .vision-section,
+  .hero.section-block,
+  .about.section-block,
+  .drives-section {
+    padding-top: 140px !important; /* increased from 120px */
+    margin-top: 0 !important;      /* prevent negative margin */
+  }
+}
+
 
 
 
