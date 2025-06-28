@@ -39,12 +39,12 @@ a {
   align-items: center;
   padding-left: 30px;
   background-color: #171b1e; /* match navbar background */
-  height: 48px; /* fixed height */
+  height: 800px; /* fixed height */
   overflow: hidden; /* clip any overflow */
 }
 
 .nav-logo img.logo-img {
-  height: 170px; /* reduce from 140px to fit navbar */
+  height: 70px; /* reduce from 140px to fit navbar */
   width: auto;
   display: block;
   filter: drop-shadow(0 0 0 transparent);
