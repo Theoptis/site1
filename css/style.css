@@ -662,6 +662,35 @@ a {
     word-wrap: break-word;
   }
 }
+@media (max-width: 768px) {
+  .horizontal-card {
+    flex-direction: column !important;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .horizontal-card h3,
+  .horizontal-card p {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .horizontal-card p {
+    line-height: 1.6;
+  }
+}
+@media (max-width: 768px) {
+  .hero.section-block,
+  .vision-section,
+  .about.section-block,
+  .drives-section {
+    padding-top: 120px !important; /* Push content down so navbar doesn’t cover it */
+  }
+}
 
 
 
