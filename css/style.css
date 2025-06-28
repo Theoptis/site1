@@ -45,11 +45,11 @@ a {
 }
 
 .nav-logo img.logo-img {
-  height: 160px; /* reduce from 140px to fit navbar */
+  height: 48px;    /* FIXED: logo visible size */
   width: auto;
   display: block;
-  filter: drop-shadow(0 0 0 transparent);
-  background-color: #171b1e; /* fallback background */
+  filter: none;
+  background-color: transparent;
 }
 
 .nav-links {
@@ -119,21 +119,23 @@ a {
 .about.section-block {
   background-color: #0b0e15;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;  /* FIXED: align text and image horizontally */
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap;              /* FIXED: allow wrapping */
   gap: 40px;
   position: relative;
+  padding-right: 460px;         /* FIXED: reserve space for image */
+  min-height: 400px;            /* ensure enough height for image */
+  box-sizing: border-box;
 }
 
 .about-text {
-  flex: 1;
-
-  /* Fixes for natural text wrapping */
-  white-space: normal !important;
-  overflow-wrap: break-word !important;
-  word-wrap: break-word !important;
-  hyphens: auto;  /* optional, helps hyphenate long words */
+  flex: 1 1 auto;
+  max-width: 600px;
+  white-space: normal;         /* FIXED: allow text wrapping */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .about-image {
@@ -141,13 +143,10 @@ a {
   right: 40px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 0;
-}
-
-.about-image img {
   max-width: 400px;
   height: auto;
-  object-fit: contain;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* WHAT DRIVES THEOPTIS SECTION */
@@ -404,18 +403,22 @@ a {
   .about.section-block {
     flex-direction: column;
     padding: 40px 20px;
+    padding-right: 0;
+    min-height: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
   }
 
   .about-image {
     position: static;
+    max-width: 90%;
     margin-top: 20px;
+    transform: none;
     text-align: center;
-    width: 100%;
-  }
-
-  .about-image img {
-    max-width: 100%;
-    height: auto;
   }
 
   /* Horizontal Cards */
@@ -484,29 +487,6 @@ a {
     overflow-x: hidden;
   }
 
-  /* About section fix */
-  .about.section-block {
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-  }
-
-  .about-text {
-    width: 100%;
-  }
-
-  .about-image {
-    position: static;
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .about-image img {
-    max-width: 90%;
-    height: auto;
-  }
-
   /* Fix horizontal cards */
   .horizontal-card {
     flex-direction: column !important;
@@ -553,54 +533,3 @@ a {
     margin-top: 0 !important; /* prevent negative margin */
   }
 }
-
-/* ==================== */
-/* About Section Text Wrapping and Image Fixes */
-/* ==================== */
-.about.section-block {
-  flex-wrap: nowrap;           /* Prevent wrapping */
-  padding-right: 460px;        /* Reserve space for image */
-  min-height: 400px;           /* Ensure enough height for image */
-  justify-content: flex-start; /* Align text and image left to right */
-}
-
-.about-text {
-  flex: 1 1 auto;
-  max-width: 600px;            /* Limit text max width */
-  white-space: normal !important;         /* Allow normal wrapping */
-  overflow-wrap: break-word !important;   /* Wrap long words */
-  word-wrap: break-word !important;
-  hyphens: auto;  /* optional: adds hyphenation */
-}
-
-.about-image {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 400px;
-  height: auto;
-  z-index: 0;
-}
-
-/* Responsive override for mobile to keep original behavior */
-@media (max-width: 768px) {
-  .about.section-block {
-    flex-wrap: wrap;           /* Allow wrapping on mobile */
-    padding-right: 0;          /* Remove right padding */
-    min-height: auto;
-    justify-content: center;   /* Center content */
-  }
-
-  .about-text {
-    max-width: 100%;
-  }
-
-  .about-image {
-    position: static;
-    max-width: 90%;
-    margin-top: 20px;
-    text-align: center;
-  }
-}
-
