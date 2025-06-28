@@ -3,11 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
 /* General styles */
-body {
+body, html {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: #0e1117;
   color: white;
+  overflow-x: hidden;      /* Prevent horizontal scroll */
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 a {
@@ -70,6 +73,7 @@ a {
 /* SECTION STYLING */
 .section-block {
   padding: 80px 40px;
+  box-sizing: border-box; /* Added for consistent padding */
 }
 
 /* HERO SECTION */
@@ -177,6 +181,9 @@ a {
   transition: box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
   opacity: 0;
   transform: translateY(40px);
+  max-width: 100%;      /* Added for responsiveness */
+  box-sizing: border-box;
+  word-wrap: break-word; /* prevent text overflow */
 }
 
 .horizontal-card.animate-fade-in,
@@ -207,15 +214,137 @@ a {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .horizontal-card {
-    flex-direction: column;
+  /* Added padding and fix for body on mobile */
+  body {
+    padding-left: 10px;
+    padding-right: 10px;
   }
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .nav-logo {
+    justify-content: center;
+    padding-left: 0;
+    height: auto;
+  }
+
+  .nav-logo img.logo-img {
+    height: 60px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  /* Hero Section */
+  .hero.section-block {
+    flex-direction: column;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  /* About Section */
+  .about.section-block {
+    flex-direction: column;
+    padding: 60px 20px;
+  }
+
+  .about-image {
+    position: static;
+    max-width: 100%;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  /* Drives Section Cards */
+  .horizontal-card {
+    flex-direction: column !important;
+    padding: 20px;
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
   .horizontal-card h3 {
     width: 100%;
     margin-bottom: 10px;
+    font-size: 1.3rem;
+  }
+
+  .horizontal-card p {
+    font-size: 0.9rem;
+  }
+
+  /* News Section */
+  .news-section {
+    padding: 40px 20px;
+  }
+
+  .news-container {
+    padding: 30px 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .news-title {
+    font-size: 24px;
+  }
+
+  .news-content {
+    font-size: 14px;
+  }
+
+  /* CTA Section */
+  .cta.section-block {
+    padding: 40px 20px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* Contact Info */
+  .contact-info {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+
+  /* Footer */
+  .footer {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100vw;
+    box-sizing: border-box;
   }
 }
-
 
 /* NEWS SECTION */
 .news-section {
@@ -350,120 +479,4 @@ a {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background: transparent; /* no background color */
   user-select: none;
-}
-/* ==================== */
-/* ✅ Mobile Styles     */
-/* ==================== */
-
-@media (max-width: 768px) {
-  /* Navbar */
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 20px;
-  }
-
-  .nav-logo {
-    justify-content: center;
-    padding-left: 0;
-    height: auto;
-  }
-
-  .nav-logo img.logo-img {
-    height: 60px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 0;
-    margin-top: 10px;
-  }
-
-  .nav-links li {
-    margin: 0;
-  }
-
-  /* Hero Section */
-  .hero.section-block {
-    flex-direction: column;
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  /* About Section */
-  .about.section-block {
-    flex-direction: column;
-    padding: 60px 20px;
-  }
-
-  .about-image {
-    position: static;
-    max-width: 100%;
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .about-image img {
-    max-width: 80%;
-    height: auto;
-  }
-
-  /* Drives Section Cards */
-  .horizontal-card {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .horizontal-card h3 {
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-
-  .horizontal-card p {
-    font-size: 0.9rem;
-  }
-
-  /* News Section */
-  .news-section {
-    padding: 40px 20px;
-  }
-
-  .news-container {
-    padding: 30px 20px;
-  }
-
-  .news-title {
-    font-size: 24px;
-  }
-
-  .news-content {
-    font-size: 14px;
-  }
-
-  /* CTA Section */
-  .cta.section-block {
-    padding: 40px 20px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 10px 20px;
-  }
-
-  /* Contact Info */
-  .contact-info {
-    font-size: 0.85rem;
-    padding: 0 10px;
-  }
 }
