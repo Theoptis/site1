@@ -16,7 +16,6 @@ a {
 }
 
 /* NAVIGATION */
-/* NAVIGATION */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -75,7 +74,7 @@ a {
 
 /* HERO SECTION */
 .hero.section-block {
-  background: url('../Images/cyber-bg.png') no-repeat center center;
+  background: url('../images/cyber-bg.png') no-repeat center center;
   background-size: cover;
   position: relative;
   display: flex;
@@ -146,7 +145,7 @@ a {
 
 /* WHAT DRIVES THEOPTIS SECTION */
 .drives-section {
-  background: url('../Images/secure-data-flow.png') no-repeat center center;
+  background: url('../images/secure-data-flow.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
