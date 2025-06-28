@@ -43,7 +43,7 @@ a {
   overflow: hidden; /* clip any overflow */
 }
 
-.nav-logo Img.logo-img {
+.nav-logo img.logo-img {
   height: 160px; /* reduce from 140px to fit navbar */
   width: auto;
   display: block;
